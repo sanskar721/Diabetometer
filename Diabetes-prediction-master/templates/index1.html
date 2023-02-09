@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Diabetes Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<style>
+  #k{
+      text-align: center;
+  }
+  .form-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .form-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .form-label {
+    width: 150px;
+    text-align: right;
+    padding-right: 10px;
+    color: rgb(255, 255, 255);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
+    text-shadow: 1px 1px rgb(0, 0, 0);
+  }
+  .form-input {
+    width: 300px;
+  }
+  h1{
+    text-align: center;
+    text-shadow: 1px 1px rgb(255, 255, 255);
+  }
+  body{
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    background-image: url("../static/s.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+</style>
+</head>
+<body>
+<h1> Diabetometer </h1>
+<br>
+ <div class="login" id="login">
+  <form action="{{ url_for('predict')}}"method="post">
+    <div class="form-grid">
+      <div class="form-row">
+        <div class="form-label">Pregnancies: </div>
+        <div class="form-input"><input name="pregnancies" type="text"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">Glucose: </div>
+        <div class="form-input"><input name="glucose" type="text"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">BloodPressure: </div>
+        <div class="form-input"><input name="bloodpressure" type="text"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">SkinThickness: </div>
+        <div class="form-input"><input name="skinthickness" type="text"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">Insulin: </div>
+        <div class="form-input"><input name="insulin" type="text"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">BMI: </div>
+        <div class="form-input"><input name="bmi" type="text"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">DPF: </div>
+        <div class="form-input"><input name="dpf" type="text"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-label">Age: </div>
+        <div class="form-input"><input name="age" type="text"></div>
+      </div>
+    </div>
+    <div id = "k"><button type="submit" class="btn btn-primary btn-block btn-large">Predict</button></div>
+  </form>
+	<br>
+   <br>
+   {{ prediction_text }}
+</div>
+</body>    
+</html>
